@@ -167,6 +167,7 @@ class Remove_Schema {
 		// Save/Update our plugin options
 		$this->loader->add_action('admin_init', $plugin_admin, 'options_update');
 
+
 	}
 
 	/**
@@ -180,8 +181,13 @@ class Remove_Schema {
 
 		$plugin_public = new Remove_Schema_Public( $this->get_plugin_name(), $this->get_version() );
 
+		// actions
+		$this->loader->add_action( 'init', $plugin_public, 'remove_schema_woocommerce_jsonld' ); //still needs testing
+		$this->loader->add_action( 'init', $plugin_public, 'remove_schema_woocommerce_mail_jsonld' ); // still needs testing
 
-
+		// Filters
+		$this->loader->add_filter('wpseo_json_ld_output', $plugin_public, 'remove_schema_yoast_jsonld', 10, 1); //works
+		//$this->loader->add_action('wp', 'remove_schema_set_up_buffer', 10, 0);
 
 	}
 

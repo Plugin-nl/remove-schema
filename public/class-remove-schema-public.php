@@ -55,33 +55,66 @@ class Remove_Schema_Public {
 
 	}
 
-	// Remove all JSON0ld
-	public function remove_schema_jsonld() {
-		if(!empty($this->remove_schema_options['rm_jsonld'])){
-
-		}
-	}
+// PLUGIN SPECIFIC FILTERS
 
 	// Remove all Yoast JSON-ld
-	public function remove_schema_yoast_jsonld() {
+	public function remove_schema_yoast_jsonld($data) {
 		if(!empty($this->remove_schema_options['yoast_jsonld'])){
+			$data = array();
+		}
+		return $data;
+	}
 
+	// Remove all Woocommerce JsonLD
+	public function remove_schema_woocommerce_jsonld() {
+		if(!empty($this->remove_schema_options['woocommerce_jsonld'])){
+			remove_action( 'wp_footer', array( WC()->structured_data, 'output_structured_data' ), 10 ); // This removes structured data from all frontend pages
 		}
 	}
 
-	// Remove all JSON ld
-	public function remove_schema_yoast_jsonld() {
-		if(!empty($this->remove_schema_options['microdata'])){
-
+	// Remove all Woocommerce JsonLD in the mail
+	public function remove_schema_woocommerce_mail_jsonld() {
+		if(!empty($this->remove_schema_options['woocommerce_mail_jsonld'])){
+			remove_action( 'woocommerce_email_order_details', array( WC()->structured_data, 'output_email_structured_data' ), 30 ); // This removes structured data from all Emails sent by WooCommerce
 		}
 	}
 
-	// Remove all JSON ld
-	public function remove_schema_yoast_jsonld() {
-		if(!empty($this->remove_schema_options['rdfa'])){
 
-		}
-	}
+
+/**
+* Initialize output buffering to filter the whole page
+*/
+function remove_schema_set_up_buffer(){
+	 //Don't filter Dashboard pages and the feed
+	 if ( is_feed() || is_admin() ){
+			 return;
+	 }
+	 ob_start('remove_schema_filter_page');
+}
+
+
+/**
+* Buffer callback.
+*
+* @param string $html Current contents of the output buffer.
+* @return string New buffer contents.
+*/
+function remove_schema_filter_page($html){
+
+	 if(!empty($this->remove_schema_options['microdata'])){
+		 $html = preg_replace(array('/itemscope=\\"[^\\"]*\\"/i', '/itemType=\\"[^\\"]*\\"/i', '/itemprop=\\"[^\\"]*\\"/i'), '', $html);
+	 }
+
+	 if(!empty($this->remove_schema_options['rdfa'])){
+		 $html = preg_replace(array('/property=\\"[^\\"]*\\"/i', '/typeof=\\"[^\\"]*\\"/i'), '', $html);
+	 }
+
+	 if(!empty($this->remove_schema_options['rm_jsonld'])){
+		 $html = preg_replace('<script type=\"application\/ld\+json\">(.*?)</script>/i','',$html);
+	 }
+
+	 return $html;
+}
 
 	/**
 	* Register the stylesheets for the public-facing side of the site.
