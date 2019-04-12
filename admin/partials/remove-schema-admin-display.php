@@ -61,7 +61,7 @@
     </fieldset>
 
 
-    <!-- remove Yoast JSONLD -->
+    <!-- remove WooCommerce JSONLD -->
     <fieldset>
       <legend class="screen-reader-text"><span><?php _e('Remove WooCommerce JsonLD', $this->plugin_name); ?></span></legend>
       <label for="<?php echo $this->plugin_name; ?>-yoast-json-ld">
@@ -71,7 +71,7 @@
     </fieldset>
 
 
-    <!-- remove Yoast JSONLD -->
+    <!-- remove  JSONLD in WooCommerce emails -->
     <fieldset>
       <legend class="screen-reader-text"><span><?php _e('Remove WooCommerce JsonLD in Emails', $this->plugin_name); ?></span></legend>
       <label for="<?php echo $this->plugin_name; ?>-woocommerce-mail-json-ld">
