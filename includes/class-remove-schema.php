@@ -187,8 +187,8 @@ class Remove_Schema {
 
 		// Filters
 		$this->loader->add_filter('wpseo_json_ld_output', $plugin_public, 'remove_schema_yoast_jsonld', 10, 1); //works
-		//$this->loader->add_action('wp', 'remove_schema_set_up_buffer', 10, 0);
 
+		$this->loader->add_action('init', $plugin_public, 'remove_schema_set_up_buffer', 10, 0);
 	}
 
 	/**
