@@ -136,6 +136,7 @@ public function validate($input) {
     $valid['yoast_jsonld'] = (isset($input['yoast_jsonld']) && !empty($input['yoast_jsonld'])) ? 1: 0;
 		$valid['woocommerce_jsonld'] = (isset($input['woocommerce_jsonld']) && !empty($input['woocommerce_jsonld'])) ? 1: 0;
 		$valid['woocommerce_mail_jsonld'] = (isset($input['woocommerce_mail_jsonld']) && !empty($input['woocommerce_mail_jsonld'])) ? 1: 0;
+		$valid['schema_pro'] = (isset($input['schema_pro']) && !empty($input['schema_pro'])) ? 1: 0;
     $valid['microdata'] = (isset($input['microdata']) && !empty($input['microdata'])) ? 1 : 0;
     $valid['rdfa'] = (isset($input['rdfa']) && !empty($input['rdfa'])) ? 1 : 0;
 
