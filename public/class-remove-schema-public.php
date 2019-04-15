@@ -54,6 +54,30 @@ class Remove_Schema_Public {
 		$this->remove_schema_options = get_option($this->plugin_name);
 
 	}
+public function apply_page_specific_options(){
+	// HACK: don't know if there is a better way to get postid here
+	// but this works i guess
+	$post_ID = url_to_postid((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+
+	// when a page specific option is turned on it overwrides the site-wide option
+	// to turn off schema on a page use "Turn off remove schema on this page"(keep_schema)
+	$page_options = get_post_meta($post_ID, 'remove_schema_page_specific', true);
+
+	if ($page_options) {
+		foreach ($page_options as $key => $page_option) {
+			if ( $page_option == 1 ) {
+				$this->remove_schema_options[$key] = $page_option;
+			}
+		}
+
+		// turn schema off on that page
+		if (!empty($page_options['keep_schema'])) {
+			if ($page_options['keep_schema'] == 1) {
+				$this->remove_schema_options = array();
+			}
+		}
+	}
+}
 
 // PLUGIN SPECIFIC FILTERS
 

@@ -117,6 +117,11 @@ class Remove_Schema {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-remove-schema-admin.php';
 
 		/**
+		 * The class responsible for defining all actions that occur for page specific settings
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-remove-schema-post-editor.php';
+
+		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
@@ -167,6 +172,13 @@ class Remove_Schema {
 		// Save/Update our plugin options
 		$this->loader->add_action('admin_init', $plugin_admin, 'options_update');
 
+		$plugin_post_editor = new Remove_Schema_Post_Editor( $this->get_plugin_name(), $this->get_version() );
+
+		// Add remove schema options to sidebar of post editor
+		$this->loader->add_action('add_meta_boxes', $plugin_post_editor, 'add_meta_box');
+
+		// Save/Update page specific options
+		$this->loader->add_action('save_post', $plugin_post_editor, 'options_update');
 
 	}
 
@@ -180,6 +192,7 @@ class Remove_Schema {
 	private function define_public_hooks() {
 
 		$plugin_public = new Remove_Schema_Public( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->add_action('init', $plugin_public, 'apply_page_specific_options', 10, 0);
 
 		// actions
 		$this->loader->add_action( 'init', $plugin_public, 'remove_schema_woocommerce_jsonld' ); //still needs testing
@@ -188,7 +201,7 @@ class Remove_Schema {
 		// remove schema pro schema
 		$this->loader->add_filter( 'wp_schema_pro_schema_enabled', $plugin_public, 'remove_schema_schema_pro', 10, 1 );
 		$this->loader->add_filter( 'wp_schema_pro_global_schema_enabled', $plugin_public, 'remove_schema_schema_pro', 10, 1 );
-		
+
 		// Filters
 		$this->loader->add_filter('wpseo_json_ld_output', $plugin_public, 'remove_schema_yoast_jsonld', 10, 1); //works
 
