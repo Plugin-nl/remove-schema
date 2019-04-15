@@ -32,6 +32,7 @@
     $yoast_jsonld = $options['yoast_jsonld'];
     $woocommerce_jsonld = $options['woocommerce_jsonld'];
     $woocommerce_mail_jsonld = $options['woocommerce_mail_jsonld'];
+    $schema_pro = $options['schema_pro'];
     $microdata = $options['microdata'];
     $rdfa = $options['rdfa'];
     ?>
@@ -77,6 +78,15 @@
       <label for="<?php echo $this->plugin_name; ?>-woocommerce-mail-json-ld">
         <input type="checkbox" id="<?php echo $this->plugin_name; ?>-woocommerce-mail-json-ld" name="<?php echo $this->plugin_name; ?>[woocommerce_mail_jsonld]" value="1" <?php checked($woocommerce_mail_jsonld, 1); ?> />
         <span><?php esc_attr_e('Remove WooCommerce JSON-LD in Emails', $this->plugin_name); ?></span>
+      </label>
+    </fieldset>
+
+    <!-- Remove schema pro schema -->
+    <fieldset>
+      <legend class="screen-reader-text"><span><?php _e('Remove Schema pro JSON-LD', $this->plugin_name); ?></span></legend>
+      <label for="<?php echo $this->plugin_name; ?>-schema-pro">
+        <input type="checkbox" id="<?php echo $this->plugin_name; ?>-schema-pro" name="<?php echo $this->plugin_name; ?>[schema_pro]" value="1" <?php checked($schema_pro, 1); ?> />
+        <span><?php esc_attr_e('Remove Schema pro JSON-LD', $this->plugin_name); ?></span>
       </label>
     </fieldset>
 

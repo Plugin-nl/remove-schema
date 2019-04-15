@@ -185,6 +185,10 @@ class Remove_Schema {
 		$this->loader->add_action( 'init', $plugin_public, 'remove_schema_woocommerce_jsonld' ); //still needs testing
 		$this->loader->add_action( 'init', $plugin_public, 'remove_schema_woocommerce_mail_jsonld' ); // still needs testing
 
+		// remove schema pro schema
+		$this->loader->add_filter( 'wp_schema_pro_schema_enabled', $plugin_public, 'remove_schema_schema_pro', 10, 1 );
+		$this->loader->add_filter( 'wp_schema_pro_global_schema_enabled', $plugin_public, 'remove_schema_schema_pro', 10, 1 );
+		
 		// Filters
 		$this->loader->add_filter('wpseo_json_ld_output', $plugin_public, 'remove_schema_yoast_jsonld', 10, 1); //works
 

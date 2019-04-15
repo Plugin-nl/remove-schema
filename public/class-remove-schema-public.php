@@ -79,6 +79,15 @@ class Remove_Schema_Public {
 		}
 	}
 
+	// Remove all schema pro JsonLD
+	public function remove_schema_schema_pro($return) {
+		if(!empty($this->remove_schema_options['schema_pro'])){
+			return false;
+		} else {
+			return $return;
+		}
+	}
+
 
 
 /**
