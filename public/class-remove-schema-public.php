@@ -89,7 +89,7 @@ function remove_schema_set_up_buffer(){
 	 if ( is_feed() || is_admin() ){
 			 return;
 	 }
-	 ob_start('remove_schema_filter_page');
+	 ob_start(array( $this, 'remove_schema_filter_page' ));
 }
 
 
@@ -110,7 +110,7 @@ function remove_schema_filter_page($html){
 	 }
 
 	 if(!empty($this->remove_schema_options['rm_jsonld'])){
-		 $html = preg_replace('<script type=\"application\/ld\+json\">(.*?)</script>/i','',$html);
+		 $html = preg_replace('/<script type=(?:\"|\')application\/ld\+json(?:\"|\')>.*<\/script>/i','',$html);
 	 }
 
 	 return $html;
