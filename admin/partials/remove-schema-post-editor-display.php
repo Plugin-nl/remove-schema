@@ -14,6 +14,8 @@
 ?>
 
 <?php
+
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 //Grab all options
 $options = get_post_meta(get_the_ID(), 'remove_schema_page_specific', true);
 if (empty($options)) {
@@ -39,14 +41,20 @@ foreach ($options as $key => $option) {
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-rm-json-ld" name="<?php echo $this->plugin_name; ?>[rm_jsonld]" value="1" <?php checked($rm_jsonld, 1); ?> />
 <?php esc_attr_e('Remove all JSON-LD', $this->plugin_name); ?></br>
 
+<?php if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) { ?>
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-yoast-json-ld" name="<?php echo $this->plugin_name; ?>[yoast_jsonld]" value="1" <?php checked($yoast_jsonld, 1); ?> />
 <?php esc_attr_e('Remove Yoast JSON-LD', $this->plugin_name); ?></br>
+<?php } ?>
 
+<?php if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { ?>
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-woocommerce-json-ld" name="<?php echo $this->plugin_name; ?>[woocommerce_jsonld]" value="1" <?php checked($woocommerce_jsonld, 1); ?> />
 <?php esc_attr_e('Remove WooCommerce JSON-LD', $this->plugin_name); ?></br>
+<?php } ?>
 
+<?php if ( is_plugin_active( 'wp-schema-pro/wp-schema-pro.php' ) ) { ?>
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-schema-pro" name="<?php echo $this->plugin_name; ?>[schema_pro]" value="1" <?php checked($schema_pro, 1); ?> />
 <?php esc_attr_e('Remove Schema pro JSON-LD', $this->plugin_name); ?></br>
+<?php } ?>
 
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-microdata" name="<?php echo $this->plugin_name; ?>[microdata]" value="1" <?php checked($microdata, 1); ?> />
 <?php esc_attr_e('Remove all Microdata', $this->plugin_name); ?></br>

@@ -29,6 +29,8 @@
   <form method="post" name="remove_schema_options" action="options.php">
 
     <?php
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
     //Grab all options
     $options = get_option($this->plugin_name);
 
@@ -54,6 +56,7 @@
 
 
           <!-- remove Yoast JSONLD -->
+          <?php if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) { ?>
           <fieldset>
             <legend class="screen-reader-text"><span><?php _e('Remove Yoast JSON-LD', $this->plugin_name); ?></span></legend>
             <label for="<?php echo $this->plugin_name; ?>-yoast-json-ld">
@@ -61,9 +64,11 @@
               <span><?php esc_attr_e('Remove Yoast JSON-LD', $this->plugin_name); ?></span>
             </label>
           </fieldset>
+          <?php } ?>
 
 
           <!-- remove WooCommerce JSONLD -->
+          <?php if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { ?>
           <fieldset>
             <legend class="screen-reader-text"><span><?php _e('Remove WooCommerce JsonLD', $this->plugin_name); ?></span></legend>
             <label for="<?php echo $this->plugin_name; ?>-yoast-json-ld">
@@ -71,9 +76,12 @@
               <span><?php esc_attr_e('Remove WooCommerce JSON-LD', $this->plugin_name); ?></span>
             </label>
           </fieldset>
+          <?php } ?>
+
 
 
           <!-- remove  JSONLD in WooCommerce emails -->
+          <?php if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { ?>
           <fieldset>
             <legend class="screen-reader-text"><span><?php _e('Remove WooCommerce JsonLD in Emails', $this->plugin_name); ?></span></legend>
             <label for="<?php echo $this->plugin_name; ?>-woocommerce-mail-json-ld">
@@ -81,8 +89,10 @@
               <span><?php esc_attr_e('Remove WooCommerce JSON-LD in Emails', $this->plugin_name); ?></span>
             </label>
           </fieldset>
+          <?php } ?>
 
           <!-- Remove schema pro schema -->
+          <?php if ( is_plugin_active( 'wp-schema-pro/wp-schema-pro.php' ) ) { ?>
           <fieldset>
             <legend class="screen-reader-text"><span><?php _e('Remove Schema pro JSON-LD', $this->plugin_name); ?></span></legend>
             <label for="<?php echo $this->plugin_name; ?>-schema-pro">
@@ -90,6 +100,7 @@
               <span><?php esc_attr_e('Remove Schema pro JSON-LD', $this->plugin_name); ?></span>
             </label>
           </fieldset>
+          <?php } ?>
 
     </div>
 
