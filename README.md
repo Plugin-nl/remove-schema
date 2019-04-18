@@ -37,3 +37,4 @@ No, you'll have to select the schema that you want gone. If we have missed a plu
 
 ## Contributors
 
+<table><tr><td align="center"><a target="_blank" href="https://websitescanner.io"><img src="https://avatars3.githubusercontent.com/u/12571900?s=460&v=4" width="100px;" alt="Tim van Iersel"/><br /><sub><b>Tim van Iersel</b></sub></a><br /></td><td align="center"><a target="_blank" href="https://tweaktheweb.nl"><img src="https://avatars2.githubusercontent.com/u/11248198?s=460&v=4" width="100px;" alt="lorenzonannings"/><br /><sub><b>Lorenzo Nannings</b></sub></a><br /></td></tr></table>
