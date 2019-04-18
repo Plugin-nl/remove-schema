@@ -75,21 +75,23 @@ class Remove_Schema_Post_Editor {
 	}
 
 	public function options_update() {
-			$data = $this->validate($_POST[$this->plugin_name]);
-			if ($data) {
-				update_post_meta( get_the_ID(), 'remove_schema_page_specific', $data );
+			if (isset($_POST[$this->plugin_name])){
+				$data = $this->validate($_POST[$this->plugin_name]);
+				if ($data) {
+					update_post_meta( get_the_ID(), 'remove_schema_page_specific', $data );
+				}
 			}
 	 }
 
 	public function validate($input) {
-			var_dump($input);
+			//var_dump($input);
 
 			// check if this isn't an auto save
 			if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 					return;
 
 			// security check
-			if ( !wp_verify_nonce( $_POST['remove_schema_nonce'], plugin_basename( __FILE__ ) ) )
+			if ( isset($_POST['remove_schema_nonce']) && !wp_verify_nonce( $_POST['remove_schema_nonce'], plugin_basename( __FILE__ ) ) )
 					return;
 
 	    // All checkboxes inputs
