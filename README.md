@@ -1,7 +1,5 @@
 # Remove Schema WordPress Plugin
 
-*Warning:* This plugin is not production ready and still in development.
-
 Remove all Schema Markup / Structured data (Microdata, RDFa and/or JSON-ld) that you don’t want on your site. You can use this plugin on site level and/or on page level. 
 
 ## Remove Schema
