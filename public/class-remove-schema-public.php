@@ -135,7 +135,7 @@ function remove_schema_set_up_buffer(){
 function remove_schema_filter_page($html){
 
 	 if(!empty($this->remove_schema_options['microdata'])){
-		 $html = preg_replace(array('/itemscope=\\"[^\\"]*\\"/i', '/itemType=\\"[^\\"]*\\"/i', '/itemprop=\\"[^\\"]*\\"/i'), '', $html);
+		 $html = preg_replace(array('/itemscope=\\"[^\\"]*\\"/i', '/itemType=\\"[^\\"]*\\"/i', '/itemprop=\\"[^\\"]*\\"/i', '/itemscope/i'), '', $html);
 	 }
 
 	 if(!empty($this->remove_schema_options['rdfa'])){
