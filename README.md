@@ -35,3 +35,4 @@ You can install Remove Schema at the moment only by downloading it from GitHub a
 #### Can you make an exception for a plugin
 No, you'll have to select the schema that you want gone. If we have missed a plugin please [create an issue on Github](https://github.com/Websitescanner/remove-schema/issues "Remove Schema Github").
 
+## Contributions
