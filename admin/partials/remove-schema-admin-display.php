@@ -21,9 +21,16 @@
 
   <p><?php _e('Select the Schema that you want to remove from your website. For more information about Schema visit', $this->plugin_name);?> <a target="_blank" href="#">Schema.org</a>.</p>
 
+  <h2 class="nav-tab-wrapper">
+            <a href="#plugin-theme" class="nav-tab nav-tab-active"><?php _e('Plugin/Theme schema removal', $this->plugin_name);?></a>
+            <a href="#aggressive" class="nav-tab"><?php _e('Aggressive schema removal', $this->plugin_name);?></a>
+	</h2>
+
   <form method="post" name="remove_schema_options" action="options.php">
 
     <?php
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
     //Grab all options
     $options = get_option($this->plugin_name);
 
@@ -42,72 +49,99 @@
     do_settings_sections($this->plugin_name);
     ?>
 
-    <!-- remove all JSONLD -->
-    <fieldset>
-      <legend class="screen-reader-text"><span><?php _e('Remove all JSON-LD', $this->plugin_name);?></span></legend>
-      <label for="<?php echo $this->plugin_name; ?>-rm-json-ld">
-        <input type="checkbox" id="<?php echo $this->plugin_name; ?>-rm-json-ld" name="<?php echo $this->plugin_name; ?>[rm_jsonld]" value="1" <?php checked($rm_jsonld, 1); ?> />
-        <span><?php esc_attr_e('Remove all JSON-LD', $this->plugin_name); ?></span>
-      </label>
 
-    </fieldset>
+    <div id="plugin-theme" class="wrap columns-2 remove-schema-metaboxes">
 
-    <!-- remove Yoast JSONLD -->
-    <fieldset>
-      <legend class="screen-reader-text"><span><?php _e('Remove Yoast JSON-LD', $this->plugin_name); ?></span></legend>
-      <label for="<?php echo $this->plugin_name; ?>-yoast-json-ld">
-        <input type="checkbox" id="<?php echo $this->plugin_name; ?>-yoast-json-ld" name="<?php echo $this->plugin_name; ?>[yoast_jsonld]" value="1" <?php checked($yoast_jsonld, 1); ?> />
-        <span><?php esc_attr_e('Remove Yoast JSON-LD', $this->plugin_name); ?></span>
-      </label>
-    </fieldset>
+    	<h2><?php esc_attr_e( 'Plugin/Theme schema removal', $this->plugin_name ); ?></h2>
 
 
-    <!-- remove WooCommerce JSONLD -->
-    <fieldset>
-      <legend class="screen-reader-text"><span><?php _e('Remove WooCommerce JsonLD', $this->plugin_name); ?></span></legend>
-      <label for="<?php echo $this->plugin_name; ?>-yoast-json-ld">
-        <input type="checkbox" id="<?php echo $this->plugin_name; ?>-woocommerce-json-ld" name="<?php echo $this->plugin_name; ?>[woocommerce_jsonld]" value="1" <?php checked($woocommerce_jsonld, 1); ?> />
-        <span><?php esc_attr_e('Remove WooCommerce JSON-LD', $this->plugin_name); ?></span>
-      </label>
-    </fieldset>
+          <!-- remove Yoast JSONLD -->
+          <?php if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) { ?>
+          <fieldset>
+            <legend class="screen-reader-text"><span><?php _e('Remove Yoast JSON-LD', $this->plugin_name); ?></span></legend>
+            <label for="<?php echo $this->plugin_name; ?>-yoast-json-ld">
+              <input type="checkbox" id="<?php echo $this->plugin_name; ?>-yoast-json-ld" name="<?php echo $this->plugin_name; ?>[yoast_jsonld]" value="1" <?php checked($yoast_jsonld, 1); ?> />
+              <span><?php esc_attr_e('Remove Yoast JSON-LD', $this->plugin_name); ?></span>
+            </label>
+          </fieldset>
+          <?php } ?>
 
 
-    <!-- remove  JSONLD in WooCommerce emails -->
-    <fieldset>
-      <legend class="screen-reader-text"><span><?php _e('Remove WooCommerce JsonLD in Emails', $this->plugin_name); ?></span></legend>
-      <label for="<?php echo $this->plugin_name; ?>-woocommerce-mail-json-ld">
-        <input type="checkbox" id="<?php echo $this->plugin_name; ?>-woocommerce-mail-json-ld" name="<?php echo $this->plugin_name; ?>[woocommerce_mail_jsonld]" value="1" <?php checked($woocommerce_mail_jsonld, 1); ?> />
-        <span><?php esc_attr_e('Remove WooCommerce JSON-LD in Emails', $this->plugin_name); ?></span>
-      </label>
-    </fieldset>
-
-    <!-- Remove schema pro schema -->
-    <fieldset>
-      <legend class="screen-reader-text"><span><?php _e('Remove Schema pro JSON-LD', $this->plugin_name); ?></span></legend>
-      <label for="<?php echo $this->plugin_name; ?>-schema-pro">
-        <input type="checkbox" id="<?php echo $this->plugin_name; ?>-schema-pro" name="<?php echo $this->plugin_name; ?>[schema_pro]" value="1" <?php checked($schema_pro, 1); ?> />
-        <span><?php esc_attr_e('Remove Schema pro JSON-LD', $this->plugin_name); ?></span>
-      </label>
-    </fieldset>
-
-    <!-- Remove all Microdata -->
-    <fieldset>
-      <legend class="screen-reader-text"><span><?php _e('Remove all Microdata', $this->plugin_name); ?></span></legend>
-      <label for="<?php echo $this->plugin_name; ?>-microdata">
-        <input type="checkbox" id="<?php echo $this->plugin_name; ?>-microdata" name="<?php echo $this->plugin_name; ?>[microdata]" value="1" <?php checked($microdata, 1); ?> />
-        <span><?php esc_attr_e('Remove all Microdata', $this->plugin_name); ?></span>
-      </label>
-    </fieldset>
+          <!-- remove WooCommerce JSONLD -->
+          <?php if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { ?>
+          <fieldset>
+            <legend class="screen-reader-text"><span><?php _e('Remove WooCommerce JsonLD', $this->plugin_name); ?></span></legend>
+            <label for="<?php echo $this->plugin_name; ?>-yoast-json-ld">
+              <input type="checkbox" id="<?php echo $this->plugin_name; ?>-woocommerce-json-ld" name="<?php echo $this->plugin_name; ?>[woocommerce_jsonld]" value="1" <?php checked($woocommerce_jsonld, 1); ?> />
+              <span><?php esc_attr_e('Remove WooCommerce JSON-LD', $this->plugin_name); ?></span>
+            </label>
+          </fieldset>
+          <?php } ?>
 
 
-    <!-- Remove all RDFa -->
-    <fieldset>
-      <legend class="screen-reader-text"><span><?php _e('Remove all RDFa', $this->plugin_name); ?></span></legend>
-      <label for="<?php echo $this->plugin_name; ?>-rdfa">
-        <input type="checkbox" id="<?php echo $this->plugin_name; ?>-rdfa" name="<?php echo $this->plugin_name; ?>[rdfa]" value="1" <?php checked($rdfa, 1); ?> />
-        <span><?php esc_attr_e('Remove all RDFa', $this->plugin_name); ?></span>
-      </label>
-    </fieldset>
+
+          <!-- remove  JSONLD in WooCommerce emails -->
+          <?php if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { ?>
+          <fieldset>
+            <legend class="screen-reader-text"><span><?php _e('Remove WooCommerce JsonLD in Emails', $this->plugin_name); ?></span></legend>
+            <label for="<?php echo $this->plugin_name; ?>-woocommerce-mail-json-ld">
+              <input type="checkbox" id="<?php echo $this->plugin_name; ?>-woocommerce-mail-json-ld" name="<?php echo $this->plugin_name; ?>[woocommerce_mail_jsonld]" value="1" <?php checked($woocommerce_mail_jsonld, 1); ?> />
+              <span><?php esc_attr_e('Remove WooCommerce JSON-LD in Emails', $this->plugin_name); ?></span>
+            </label>
+          </fieldset>
+          <?php } ?>
+
+          <!-- Remove schema pro schema -->
+          <?php if ( is_plugin_active( 'wp-schema-pro/wp-schema-pro.php' ) ) { ?>
+          <fieldset>
+            <legend class="screen-reader-text"><span><?php _e('Remove Schema pro JSON-LD', $this->plugin_name); ?></span></legend>
+            <label for="<?php echo $this->plugin_name; ?>-schema-pro">
+              <input type="checkbox" id="<?php echo $this->plugin_name; ?>-schema-pro" name="<?php echo $this->plugin_name; ?>[schema_pro]" value="1" <?php checked($schema_pro, 1); ?> />
+              <span><?php esc_attr_e('Remove Schema pro JSON-LD', $this->plugin_name); ?></span>
+            </label>
+          </fieldset>
+          <?php } ?>
+
+    </div>
+
+
+    <div id="aggressive" class="wrap columns-2 remove-schema-metaboxes hidden">
+
+      <h2><?php esc_attr_e( 'Aggressive schema removal', $this->plugin_name ); ?></h2>
+
+      <!-- remove all JSONLD -->
+      <fieldset>
+        <legend class="screen-reader-text"><span><?php _e('Remove all JSON-LD', $this->plugin_name);?></span></legend>
+        <label for="<?php echo $this->plugin_name; ?>-rm-json-ld">
+          <input type="checkbox" id="<?php echo $this->plugin_name; ?>-rm-json-ld" name="<?php echo $this->plugin_name; ?>[rm_jsonld]" value="1" <?php checked($rm_jsonld, 1); ?> />
+          <span><?php esc_attr_e('Remove all JSON-LD', $this->plugin_name); ?></span>
+        </label>
+
+      </fieldset>
+
+
+      <!-- Remove all Microdata -->
+      <fieldset>
+        <legend class="screen-reader-text"><span><?php _e('Remove all Microdata', $this->plugin_name); ?></span></legend>
+        <label for="<?php echo $this->plugin_name; ?>-microdata">
+          <input type="checkbox" id="<?php echo $this->plugin_name; ?>-microdata" name="<?php echo $this->plugin_name; ?>[microdata]" value="1" <?php checked($microdata, 1); ?> />
+          <span><?php esc_attr_e('Remove all Microdata', $this->plugin_name); ?></span>
+        </label>
+      </fieldset>
+
+
+      <!-- Remove all RDFa -->
+      <fieldset>
+        <legend class="screen-reader-text"><span><?php _e('Remove all RDFa', $this->plugin_name); ?></span></legend>
+        <label for="<?php echo $this->plugin_name; ?>-rdfa">
+          <input type="checkbox" id="<?php echo $this->plugin_name; ?>-rdfa" name="<?php echo $this->plugin_name; ?>[rdfa]" value="1" <?php checked($rdfa, 1); ?> />
+          <span><?php esc_attr_e('Remove all RDFa', $this->plugin_name); ?></span>
+        </label>
+      </fieldset>
+
+    </div>
+
+
 
     <?php submit_button(__('Save all changes', $this->plugin_name), 'primary','submit', TRUE); ?>
 
