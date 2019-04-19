@@ -107,8 +107,8 @@
 
     <div id="aggressive" class="wrap columns-2 remove-schema-metaboxes hidden">
 
-      <h2><?php esc_attr_e( 'Aggressive schema removal', $this->plugin_name ); ?></h2>
-
+      <h2 class="text-red"><?php esc_attr_e( 'Aggressive schema removal', $this->plugin_name ); ?></h2>
+      <p>Use when other options are not working. Because this may cause problems. And will certanly slow down you're website when you don't use any caching plugins.</p>
       <!-- remove all JSONLD -->
       <fieldset>
         <legend class="screen-reader-text"><span><?php _e('Remove all JSON-LD', $this->plugin_name);?></span></legend>
