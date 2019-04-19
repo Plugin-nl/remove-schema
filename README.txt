@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: timvaniersel
+Contributors: timvaniersel, lorenzonannings
 Donate link: https://timvaniersel.com/
 Tags: schema, schema markup
 Requires at least: 3.0.1
