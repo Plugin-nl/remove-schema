@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Remove Schema ===
 Contributors: timvaniersel, lorenzonannings
 Donate link: https://timvaniersel.com/
 Tags: schema, schema markup
@@ -7,6 +7,7 @@ Tested up to: 5.1
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Requires PHP: 5.2.4
 
 Remove all Schema Markup / Structured data (Microdata, RDFa and/or JSON-ld) that you don’t want on your site.
 
