@@ -19,7 +19,7 @@
 
   <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
 
-  <p><?php _e('Select the Schema that you want to remove from your website. For more information about Schema visit', $this->plugin_name);?> <a target="_blank" href="#">Schema.org</a>.</p>
+  <p><?php _e('Select the Schema that you want to remove from your website. For more information about Schema visit', $this->plugin_name);?> <a target="_blank" href="https://schema.org">Schema.org</a>.</p>
 
   <h2 class="nav-tab-wrapper">
             <a href="#plugin-theme" class="nav-tab nav-tab-active"><?php _e('Plugin/Theme schema removal', $this->plugin_name);?></a>
