@@ -1,7 +1,7 @@
 === Remove Schema ===
 Contributors: timvaniersel, lorenzonannings
-Donate link: https://timvaniersel.com/
-Tags: schema, schema markup
+Donate link: https://remove-schema.com
+Tags: schema, schema markup, structured data
 Requires at least: 3.0.1
 Tested up to: 5.1
 Stable tag: 1.0
