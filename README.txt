@@ -27,6 +27,7 @@ And remove plugin/theme specific markup:
 * WooCommerce emails
 * Yoast SEO
 * Schema Pro
+* GeneratePress themes
 
 
 == Installation ==

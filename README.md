@@ -1,6 +1,6 @@
 # Remove Schema WordPress Plugin
 
-Remove all Schema Markup / Structured data (Microdata, RDFa and/or JSON-ld) that you don’t want on your site. You can use this plugin on site level and/or on page level. 
+Remove all Schema Markup / Structured data (Microdata, RDFa and/or JSON-ld) that you don’t want on your site. You can use this plugin on site level and/or on page level.
 
 ## Remove Schema
 
@@ -18,6 +18,7 @@ And remove plugin/theme specific markup:
 * WooCommerce emails
 * Yoast SEO
 * Schema Pro
+* GeneratePress themes
 
 
 ## Installation

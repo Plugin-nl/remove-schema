@@ -42,6 +42,7 @@
     $schema_pro = $options['schema_pro'];
     $microdata = $options['microdata'];
     $rdfa = $options['rdfa'];
+    $generatepress_schema = $options['generatepress_schema']
     ?>
 
     <?php
@@ -101,6 +102,16 @@
             </label>
           </fieldset>
           <?php } ?>
+
+          <!-- Remove schema GeneratePress -->
+          <fieldset>
+            <legend class="screen-reader-text"><span><?php _e('Remove GeneratePress schema', $this->plugin_name); ?></span></legend>
+            <label for="<?php echo $this->plugin_name; ?>-generatepress">
+              <input type="checkbox" id="<?php echo $this->plugin_name; ?>-generatepress" name="<?php echo $this->plugin_name; ?>[generatepress_schema]" value="1" <?php checked($generatepress_schema, 1); ?> />
+              <span><?php esc_attr_e('Remove GeneratePress schema', $this->plugin_name); ?></span>
+            </label>
+          </fieldset>
+
 
     </div>
 

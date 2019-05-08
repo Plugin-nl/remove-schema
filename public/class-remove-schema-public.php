@@ -112,6 +112,15 @@ public function apply_page_specific_options(){
 		}
 	}
 
+	// Remove generatepress schema
+	public function remove_schema_generatepress() {
+		if(!empty($this->remove_schema_options['generatepress_schema'])) {
+			return "";
+		}else{
+			return true;
+		}
+	}
+
 
 
 /**
