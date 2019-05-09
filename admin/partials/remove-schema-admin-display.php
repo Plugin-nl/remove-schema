@@ -118,7 +118,7 @@
             <legend class="screen-reader-text"><span><?php _e('Remove hentry schema', $this->plugin_name); ?></span></legend>
             <label for="<?php echo $this->plugin_name; ?>-hentry-schema">
               <input type="checkbox" id="<?php echo $this->plugin_name; ?>-hentry-schema" name="<?php echo $this->plugin_name; ?>[remove_hentry_schema]" value="1" <?php checked($remove_hentry_schema, 1); ?> />
-              <span><?php esc_attr_e('Remove Hentry/hAtom schema', $this->plugin_name); ?></span>
+              <span><?php esc_attr_e('Remove Hentry schema', $this->plugin_name); ?></span>
             </label>
           </fieldset>
 
