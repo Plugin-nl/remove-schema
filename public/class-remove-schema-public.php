@@ -121,7 +121,14 @@ public function apply_page_specific_options(){
 		}
 	}
 
-
+// Remove 'hentry' from post_class()
+	public function remove_schema_remove_hentry( $class ) {
+		if(!empty($this->remove_schema_options['remove_hentry_schema'])) {
+			$class = array_diff( $class, array( 'hentry' ) );
+			return $class;
+		}
+		return $class;
+	}
 
 /**
 * Initialize output buffering to filter the whole page
