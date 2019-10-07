@@ -18,14 +18,12 @@
 <div class="wrap">
 
   <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
-
   <p><?php _e('Select the Schema that you want to remove from your website. For more information about Schema visit', $this->plugin_name);?> <a target="_blank" href="#">Schema.org</a>.</p>
 
   <h2 class="nav-tab-wrapper">
             <a href="#plugin-theme" class="nav-tab nav-tab-active"><?php _e('Plugin/Theme schema removal', $this->plugin_name);?></a>
             <a href="#aggressive" class="nav-tab"><?php _e('Aggressive schema removal', $this->plugin_name);?></a>
 	</h2>
-
   <form method="post" name="remove_schema_options" action="options.php">
 
     <?php
@@ -49,11 +47,9 @@
     do_settings_sections($this->plugin_name);
     ?>
 
-
     <div id="plugin-theme" class="wrap columns-2 remove-schema-metaboxes">
 
     	<h2><?php esc_attr_e( 'Plugin/Theme schema removal', $this->plugin_name ); ?></h2>
-
 
           <!-- remove Yoast JSONLD -->
           <?php if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) { ?>
@@ -66,7 +62,6 @@
           </fieldset>
           <?php } ?>
 
-
           <!-- remove WooCommerce JSONLD -->
           <?php if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { ?>
           <fieldset>
@@ -77,8 +72,6 @@
             </label>
           </fieldset>
           <?php } ?>
-
-
 
           <!-- remove  JSONLD in WooCommerce emails -->
           <?php if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { ?>
@@ -104,7 +97,6 @@
 
     </div>
 
-
     <div id="aggressive" class="wrap columns-2 remove-schema-metaboxes hidden">
 
       <h2><?php esc_attr_e( 'Aggressive schema removal', $this->plugin_name ); ?></h2>
@@ -119,7 +111,6 @@
 
       </fieldset>
 
-
       <!-- Remove all Microdata -->
       <fieldset>
         <legend class="screen-reader-text"><span><?php _e('Remove all Microdata', $this->plugin_name); ?></span></legend>
@@ -128,7 +119,6 @@
           <span><?php esc_attr_e('Remove all Microdata', $this->plugin_name); ?></span>
         </label>
       </fieldset>
-
 
       <!-- Remove all RDFa -->
       <fieldset>
@@ -140,8 +130,6 @@
       </fieldset>
 
     </div>
-
-
 
     <?php submit_button(__('Save all changes', $this->plugin_name), 'primary','submit', TRUE); ?>
 

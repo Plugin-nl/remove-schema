@@ -16,7 +16,7 @@
  * Plugin Name:       Remove Schema
  * Plugin URI:        https://websitescanner.io/plugins/remove-schema/
  * Description:       Removes all Microdata, RDFa and/or JSON-ld that you don’t want on your page.
- * Version:           1.0.0
+ * Version:           1.2.0
  * Author:            Tim van Iersel
  * Author URI:        https://timvaniersel.com/
  * License:           GPL-2.0+
@@ -63,8 +63,6 @@ register_deactivation_hook( __FILE__, 'deactivate_remove_schema' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-remove-schema.php';
-
-
 
 /**
  * Begins execution of the plugin.
