@@ -55,8 +55,7 @@ class Remove_Schema_Public {
 
 	}
 public function apply_page_specific_options(){
-	// HACK: don't know if there is a better way to get postid here
-	// but this works i guess
+	// Get POST id
 	$post_ID = url_to_postid((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 
 	// when a page specific option is turned on it overwrides the site-wide option
