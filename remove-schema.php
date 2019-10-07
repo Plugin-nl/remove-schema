@@ -64,8 +64,7 @@ register_deactivation_hook( __FILE__, 'deactivate_remove_schema' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-remove-schema.php';
 
-// TODO determine where this line goes
-//add_filter('wpseo_json_ld_output', '__return_false');
+
 
 /**
  * Begins execution of the plugin.
