@@ -18,7 +18,8 @@
 <div class="wrap">
 
   <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
-  <p><?php _e('Select the Schema that you want to remove from your website. For more information about Schema visit', $this->plugin_name);?> <a target="_blank" href="#">Schema.org</a>.</p>
+
+  <p><?php _e('Select the Schema that you want to remove from your website. For more information about Schema visit', $this->plugin_name);?> <a target="_blank" href="https://schema.org">Schema.org</a>.</p>
 
   <h2 class="nav-tab-wrapper">
             <a href="#plugin-theme" class="nav-tab nav-tab-active"><?php _e('Plugin/Theme schema removal', $this->plugin_name);?></a>
@@ -40,6 +41,9 @@
     $schema_pro = $options['schema_pro'];
     $microdata = $options['microdata'];
     $rdfa = $options['rdfa'];
+    $generatepress_schema = $options['generatepress_schema'];
+    $remove_hentry_schema = $options['remove_hentry_schema'];
+
     ?>
 
     <?php
@@ -95,12 +99,32 @@
           </fieldset>
           <?php } ?>
 
+          <!-- Remove schema GeneratePress -->
+          <fieldset>
+            <legend class="screen-reader-text"><span><?php _e('Remove GeneratePress schema', $this->plugin_name); ?></span></legend>
+            <label for="<?php echo $this->plugin_name; ?>-generatepress">
+              <input type="checkbox" id="<?php echo $this->plugin_name; ?>-generatepress" name="<?php echo $this->plugin_name; ?>[generatepress_schema]" value="1" <?php checked($generatepress_schema, 1); ?> />
+              <span><?php esc_attr_e('Remove GeneratePress schema', $this->plugin_name); ?></span>
+            </label>
+          </fieldset>
+
+
+          <!-- Remove schema hentry -->
+          <fieldset>
+            <legend class="screen-reader-text"><span><?php _e('Remove hentry schema', $this->plugin_name); ?></span></legend>
+            <label for="<?php echo $this->plugin_name; ?>-hentry-schema">
+              <input type="checkbox" id="<?php echo $this->plugin_name; ?>-hentry-schema" name="<?php echo $this->plugin_name; ?>[remove_hentry_schema]" value="1" <?php checked($remove_hentry_schema, 1); ?> />
+              <span><?php esc_attr_e('Remove Hentry schema', $this->plugin_name); ?></span>
+            </label>
+          </fieldset>
+
+
     </div>
 
     <div id="aggressive" class="wrap columns-2 remove-schema-metaboxes hidden">
 
-      <h2><?php esc_attr_e( 'Aggressive schema removal', $this->plugin_name ); ?></h2>
-
+      <h2 class="text-red"><?php esc_attr_e( 'Aggressive schema removal', $this->plugin_name ); ?></h2>
+      <p>Use when other options are not working. Because this may cause problems. And will certanly slow down you're website when you don't use any caching plugins.</p>
       <!-- remove all JSONLD -->
       <fieldset>
         <legend class="screen-reader-text"><span><?php _e('Remove all JSON-LD', $this->plugin_name);?></span></legend>

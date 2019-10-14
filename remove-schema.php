@@ -14,11 +14,11 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Remove Schema
- * Plugin URI:        https://websitescanner.io/plugins/remove-schema/
+ * Plugin URI:        https://remove-schema.com/
  * Description:       Removes all Microdata, RDFa and/or JSON-ld that you don’t want on your page.
  * Version:           1.2.0
- * Author:            Tim van Iersel
- * Author URI:        https://timvaniersel.com/
+ * Author:            Websitescanner, TweakTheWeb
+ * Author URI:        https://remove-schema.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       remove-schema

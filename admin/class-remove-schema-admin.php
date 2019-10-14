@@ -122,23 +122,23 @@ public function options_update() {
 }
 
 public function validate($input) {
-	// All checkboxes inputs
 
-	$valid = array();
+    // All checkboxes inputs
+    $valid = array();
 
-	//Cleanup
-	$valid['rm_jsonld'] = (isset($input['rm_jsonld']) && !empty($input['rm_jsonld'])) ? 1 : 0;
-	$valid['yoast_jsonld'] = (isset($input['yoast_jsonld']) && !empty($input['yoast_jsonld'])) ? 1: 0;
-	$valid['woocommerce_jsonld'] = (isset($input['woocommerce_jsonld']) && !empty($input['woocommerce_jsonld'])) ? 1: 0;
-	$valid['woocommerce_mail_jsonld'] = (isset($input['woocommerce_mail_jsonld']) && !empty($input['woocommerce_mail_jsonld'])) ? 1: 0;
-	$valid['schema_pro'] = (isset($input['schema_pro']) && !empty($input['schema_pro'])) ? 1: 0;
-	$valid['microdata'] = (isset($input['microdata']) && !empty($input['microdata'])) ? 1 : 0;
-	$valid['rdfa'] = (isset($input['rdfa']) && !empty($input['rdfa'])) ? 1 : 0;
+    //Cleanup
+    $valid['rm_jsonld'] = (isset($input['rm_jsonld']) && !empty($input['rm_jsonld'])) ? 1 : 0;
+    $valid['yoast_jsonld'] = (isset($input['yoast_jsonld']) && !empty($input['yoast_jsonld'])) ? 1: 0;
+		$valid['woocommerce_jsonld'] = (isset($input['woocommerce_jsonld']) && !empty($input['woocommerce_jsonld'])) ? 1: 0;
+		$valid['woocommerce_mail_jsonld'] = (isset($input['woocommerce_mail_jsonld']) && !empty($input['woocommerce_mail_jsonld'])) ? 1: 0;
+		$valid['schema_pro'] = (isset($input['schema_pro']) && !empty($input['schema_pro'])) ? 1: 0;
+		$valid['generatepress_schema'] = (isset($input['generatepress_schema']) && !empty($input['generatepress_schema'])) ? 1: 0;
+		$valid['remove_hentry_schema'] = (isset($input['remove_hentry_schema']) && !empty($input['remove_hentry_schema'])) ? 1: 0;
 
-	return $valid;
+    $valid['microdata'] = (isset($input['microdata']) && !empty($input['microdata'])) ? 1 : 0;
+    $valid['rdfa'] = (isset($input['rdfa']) && !empty($input['rdfa'])) ? 1 : 0;
 
-
-
-}
+    return $valid;
+ }
 
 }

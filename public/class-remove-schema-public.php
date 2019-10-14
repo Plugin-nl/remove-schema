@@ -90,14 +90,14 @@ public function apply_page_specific_options(){
 
 	// Remove all Woocommerce JsonLD
 	public function remove_schema_woocommerce_jsonld() {
-		if(!empty($this->remove_schema_options['woocommerce_jsonld'])){
+		if(!empty($this->remove_schema_options['woocommerce_jsonld']) && class_exists( 'WooCommerce' )){
 			remove_action( 'wp_footer', array( WC()->structured_data, 'output_structured_data' ), 10 ); // This removes structured data from all frontend pages
 		}
 	}
 
 	// Remove all Woocommerce JsonLD in the mail
 	public function remove_schema_woocommerce_mail_jsonld() {
-		if(!empty($this->remove_schema_options['woocommerce_mail_jsonld'])){
+		if(!empty($this->remove_schema_options['woocommerce_mail_jsonld']) && class_exists( 'WooCommerce' )){
 			remove_action( 'woocommerce_email_order_details', array( WC()->structured_data, 'output_email_structured_data' ), 30 ); // This removes structured data from all Emails sent by WooCommerce
 		}
 	}
@@ -111,7 +111,23 @@ public function apply_page_specific_options(){
 		}
 	}
 
+	// Remove generatepress schema
+	public function remove_schema_generatepress() {
+		if(!empty($this->remove_schema_options['generatepress_schema'])) {
+			return "";
+		}else{
+			return true;
+		}
+	}
 
+// Remove 'hentry' from post_class()
+	public function remove_schema_remove_hentry( $class ) {
+		if(!empty($this->remove_schema_options['remove_hentry_schema'])) {
+			$class = array_diff( $class, array( 'hentry' ) );
+			return $class;
+		}
+		return $class;
+	}
 
 /**
 * Initialize output buffering to filter the whole page

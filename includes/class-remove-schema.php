@@ -195,16 +195,16 @@ class Remove_Schema {
 		$this->loader->add_action('init', $plugin_public, 'apply_page_specific_options', 10, 0);
 
 		// actions
-		$this->loader->add_action( 'init', $plugin_public, 'remove_schema_woocommerce_jsonld' ); //still needs testing
-		$this->loader->add_action( 'init', $plugin_public, 'remove_schema_woocommerce_mail_jsonld' ); // still needs testing
-
-		// remove schema pro schema
+		$this->loader->add_action( 'init', $plugin_public, 'remove_schema_woocommerce_jsonld' );
+		$this->loader->add_action( 'init', $plugin_public, 'remove_schema_woocommerce_mail_jsonld' );
+		// filters
 		$this->loader->add_filter( 'wp_schema_pro_schema_enabled', $plugin_public, 'remove_schema_schema_pro', 10, 1 );
 		$this->loader->add_filter( 'wp_schema_pro_global_schema_enabled', $plugin_public, 'remove_schema_schema_pro', 10, 1 );
 
-		// Filters
-		$this->loader->add_filter('wpseo_json_ld_output', $plugin_public, 'remove_schema_yoast_jsonld', 10, 1); //works
-
+		$this->loader->add_filter( 'post_class', $plugin_public, 'remove_schema_remove_hentry', 10, 1 );
+		$this->loader->add_filter( 'generate_schema_type', $plugin_public, 'remove_schema_generatepress', 10, 1 );
+		$this->loader->add_filter('wpseo_json_ld_output', $plugin_public, 'remove_schema_yoast_jsonld', 10, 1);
+		
 		$this->loader->add_action('init', $plugin_public, 'remove_schema_set_up_buffer', 10, 0);
 	}
 
