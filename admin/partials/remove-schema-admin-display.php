@@ -25,7 +25,6 @@
             <a href="#plugin-theme" class="nav-tab nav-tab-active"><?php _e('Plugin/Theme schema removal', $this->plugin_name);?></a>
             <a href="#aggressive" class="nav-tab"><?php _e('Aggressive schema removal', $this->plugin_name);?></a>
 	</h2>
-
   <form method="post" name="remove_schema_options" action="options.php">
 
     <?php
@@ -52,11 +51,9 @@
     do_settings_sections($this->plugin_name);
     ?>
 
-
     <div id="plugin-theme" class="wrap columns-2 remove-schema-metaboxes">
 
     	<h2><?php esc_attr_e( 'Plugin/Theme schema removal', $this->plugin_name ); ?></h2>
-
 
           <!-- remove Yoast JSONLD -->
           <?php if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) { ?>
@@ -68,7 +65,6 @@
             </label>
           </fieldset>
           <?php } ?>
-
 
           <!-- remove WooCommerce JSONLD -->
           <?php if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { ?>
@@ -125,7 +121,6 @@
 
     </div>
 
-
     <div id="aggressive" class="wrap columns-2 remove-schema-metaboxes hidden">
 
       <h2 class="text-red"><?php esc_attr_e( 'Aggressive schema removal', $this->plugin_name ); ?></h2>
@@ -140,7 +135,6 @@
 
       </fieldset>
 
-
       <!-- Remove all Microdata -->
       <fieldset>
         <legend class="screen-reader-text"><span><?php _e('Remove all Microdata', $this->plugin_name); ?></span></legend>
@@ -149,7 +143,6 @@
           <span><?php esc_attr_e('Remove all Microdata', $this->plugin_name); ?></span>
         </label>
       </fieldset>
-
 
       <!-- Remove all RDFa -->
       <fieldset>
@@ -161,8 +154,6 @@
       </fieldset>
 
     </div>
-
-
 
     <?php submit_button(__('Save all changes', $this->plugin_name), 'primary','submit', TRUE); ?>
 

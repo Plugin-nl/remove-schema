@@ -55,8 +55,7 @@ class Remove_Schema_Public {
 
 	}
 public function apply_page_specific_options(){
-	// HACK: don't know if there is a better way to get postid here
-	// but this works i guess
+	// Get POST id
 	$post_ID = url_to_postid((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 
 	// when a page specific option is turned on it overwrides the site-wide option
@@ -165,50 +164,5 @@ function remove_schema_filter_page($html){
 	 return $html;
 }
 
-	/**
-	* Register the stylesheets for the public-facing side of the site.
-	*
-	* @since    1.0.0
-	*/
-	public function enqueue_styles() {
-
-		/**
-		* This function is provided for demonstration purposes only.
-		*
-		* An instance of this class should be passed to the run() function
-		* defined in Remove_Schema_Loader as all of the hooks are defined
-		* in that particular class.
-		*
-		* The Remove_Schema_Loader will then create the relationship
-		* between the defined hooks and the functions defined in this
-		* class.
-		*/
-
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/remove-schema-public.css', array(), $this->version, 'all' );
-
-	}
-
-	/**
-	* Register the JavaScript for the public-facing side of the site.
-	*
-	* @since    1.0.0
-	*/
-	public function enqueue_scripts() {
-
-		/**
-		* This function is provided for demonstration purposes only.
-		*
-		* An instance of this class should be passed to the run() function
-		* defined in Remove_Schema_Loader as all of the hooks are defined
-		* in that particular class.
-		*
-		* The Remove_Schema_Loader will then create the relationship
-		* between the defined hooks and the functions defined in this
-		* class.
-		*/
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/remove-schema-public.js', array( 'jquery' ), $this->version, false );
-
-	}
 
 }
