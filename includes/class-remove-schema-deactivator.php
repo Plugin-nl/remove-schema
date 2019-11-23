@@ -3,7 +3,7 @@
 /**
  * Fired during plugin deactivation
  *
- * @link       https://timvaniersel.com/
+ * @link       https://plugin.nl/
  * @since      1.0.0
  *
  * @package    Remove_Schema

@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://timvaniersel.com/
+ * @link              https://plugin.nl/
  * @since             1.0.0
  * @package           Remove_Schema
  *
  * @wordpress-plugin
  * Plugin Name:       Remove Schema
- * Plugin URI:        https://remove-schema.com/
- * Description:       Removes all Microdata, RDFa and/or JSON-ld that you don’t want on your page.
+ * Plugin URI:        https://plugin.nl/en/remove-schema-plugin/
+ * Description:       Remove all Microdata, RDFa and/or JSON-ld that you don’t want on your page.
  * Version:           1.2.0
- * Author:            Websitescanner, TweakTheWeb
- * Author URI:        https://remove-schema.com/
+ * Author:            Plugin.nl, TweakTheWeb
+ * Author URI:        https://plugin.nl/en/remove-schema-plugin/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       remove-schema
@@ -32,10 +32,9 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
  */
 define( 'REMOVE_SCHEMA_VERSION', '1.2.0' );
+
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.

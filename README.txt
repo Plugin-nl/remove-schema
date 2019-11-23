@@ -1,6 +1,6 @@
 === Remove Schema ===
 Contributors: timvaniersel, lorenzonannings
-Donate link: https://remove-schema.com
+Donate link: https://plugin.nl/en/remove-schema-plugin/
 Tags: schema, schema markup, structured data
 Requires at least: 3.0.1
 Tested up to: 5.3

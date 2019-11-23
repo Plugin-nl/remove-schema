@@ -3,7 +3,7 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       https://timvaniersel.com/
+ * @link       https://plugin.nl/
  * @since      1.0.0
  *
  * @package    Remove_Schema

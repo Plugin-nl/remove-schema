@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://timvaniersel.com/
+ * @link       https://plugin.nl/
  * @since      1.0.0
  *
  * @package    Remove_Schema
@@ -204,7 +204,7 @@ class Remove_Schema {
 		$this->loader->add_filter( 'post_class', $plugin_public, 'remove_schema_remove_hentry', 10, 1 );
 		$this->loader->add_filter( 'generate_schema_type', $plugin_public, 'remove_schema_generatepress', 10, 1 );
 		$this->loader->add_filter('wpseo_json_ld_output', $plugin_public, 'remove_schema_yoast_jsonld', 10, 1);
-		
+
 		$this->loader->add_action('init', $plugin_public, 'remove_schema_set_up_buffer', 10, 0);
 	}
 
