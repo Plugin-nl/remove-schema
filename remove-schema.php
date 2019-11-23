@@ -35,29 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'REMOVE_SCHEMA_VERSION', '1.0.0' );
-
-/**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-remove-schema-activator.php
- */
-function activate_remove_schema() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-remove-schema-activator.php';
-	Remove_Schema_Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-remove-schema-deactivator.php
- */
-function deactivate_remove_schema() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-remove-schema-deactivator.php';
-	Remove_Schema_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_remove_schema' );
-register_deactivation_hook( __FILE__, 'deactivate_remove_schema' );
-
+define( 'REMOVE_SCHEMA_VERSION', '1.2.0' );
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
