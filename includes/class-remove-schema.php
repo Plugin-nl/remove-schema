@@ -127,6 +127,12 @@ class Remove_Schema {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-remove-schema-public.php';
 
+		/**
+		 * The class responsible prompting a review notice one week after installing the plugin
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-remove-schema-plugin-review.php';
+
+
 		$this->loader = new Remove_Schema_Loader();
 
 	}
@@ -179,6 +185,12 @@ class Remove_Schema {
 
 		// Save/Update page specific options
 		$this->loader->add_action('save_post', $plugin_post_editor, 'options_update');
+
+		new Remove_Schema_Plugin_Review( array(
+			'slug'        => 'remove-schema',  // The plugin slug
+			'name'        => 'Remove Schema', // The plugin name
+			'time_limit'  => WEEK_IN_SECONDS,     // The time limit at which notice is shown
+		) );
 
 	}
 
