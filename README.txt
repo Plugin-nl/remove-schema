@@ -3,7 +3,7 @@ Contributors: timvaniersel, lorenzonannings
 Donate link: https://remove-schema.com
 Tags: schema, schema markup, structured data
 Requires at least: 3.0.1
-Tested up to: 5.2
+Tested up to: 5.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -51,6 +51,13 @@ No, you'll have to select the schema that you want gone. If we have missed a plu
 2. Page editor
 
 == Changelog ==
+
+= 1.2 =
+* Add support for GeneratePress themes
+* Add support for removing hentry classes
+
+= 1.1 =
+* Code cleanup
 
 = 1.0 =
 * Inital release
