@@ -19,7 +19,7 @@
 * @since      1.2.0
 * @package    Remove_Schema
 * @subpackage Remove_Schema/includes
-* @author     Tim van Iersel <tim@websitescanner.io>
+* @author     Tim van Iersel <tim@plugin.nl>
 */
 
 if ( ! class_exists( 'Remove_Schema_Plugin_Review' ) ) :

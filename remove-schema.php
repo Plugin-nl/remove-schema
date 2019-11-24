@@ -17,7 +17,7 @@
  * Plugin URI:        https://plugin.nl/en/remove-schema-plugin/
  * Description:       Remove all Microdata, RDFa and/or JSON-ld that you don’t want on your page.
  * Version:           1.2.0
- * Author:            Plugin.nl, TweakTheWeb
+ * Author:            Plugin.nl
  * Author URI:        https://plugin.nl/en/remove-schema-plugin/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

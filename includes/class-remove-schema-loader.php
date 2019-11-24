@@ -19,7 +19,7 @@
  *
  * @package    Remove_Schema
  * @subpackage Remove_Schema/includes
- * @author     Tim van Iersel <tim@websitescanner.io>
+ * @author     Tim van Iersel <tim@plugin.nl>
  */
 class Remove_Schema_Loader {
 
