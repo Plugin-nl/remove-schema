@@ -28,9 +28,13 @@ if (empty($options)) {
   $options['microdata'] = false;
   $options['rdfa'] = false;
 }
-foreach ($options as $key => $option) {
-  ${$key} = $option;
-}
+$keep_schema = $option['keep_schema'];
+$rm_jsonld = $options['rm_jsonld'];
+$yoast_jsonld = $options['yoast_jsonld'];
+$woocommerce_jsonld = $options['woocommerce_jsonld'];
+$schema_pro = $options['schema_pro'];
+$microdata = $options['microdata'];
+$rdfa = $options['rdfa'];
 ?>
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-keep-schema" name="<?php echo $this->plugin_name; ?>[keep_schema]" value="1" <?php checked($keep_schema, 1); ?> />
 <b><?php esc_attr_e('Turn off remove schema on this page', $this->plugin_name); ?></b></br>

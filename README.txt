@@ -52,6 +52,9 @@ No, you'll have to select the schema that you want gone. If we have missed a plu
 
 == Changelog ==
 
+= 1.3 =
+* Improved security
+
 = 1.2 =
 * Add support for GeneratePress themes
 * Add support for removing hentry classes
