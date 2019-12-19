@@ -55,7 +55,7 @@ class Remove_Schema_Post_Editor {
 	}
 
 	public function add_meta_box() {
-		$screens = array( 'post', 'page' );
+		$screens = get_post_types();
 
 		foreach ( $screens as $screen ) {
 
