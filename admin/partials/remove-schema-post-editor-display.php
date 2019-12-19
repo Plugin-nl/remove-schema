@@ -28,7 +28,7 @@ if (empty($options)) {
   $options['microdata'] = false;
   $options['rdfa'] = false;
 }
-$keep_schema = $option['keep_schema'];
+$keep_schema = $options['keep_schema'];
 $rm_jsonld = $options['rm_jsonld'];
 $yoast_jsonld = $options['yoast_jsonld'];
 $woocommerce_jsonld = $options['woocommerce_jsonld'];
