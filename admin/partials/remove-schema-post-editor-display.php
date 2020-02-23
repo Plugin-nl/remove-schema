@@ -36,6 +36,8 @@ $schema_pro = $options['schema_pro'];
 $microdata = $options['microdata'];
 $rdfa = $options['rdfa'];
 ?>
+<input class="hidden" style="display:none;" type="text" id="<?php echo $this->plugin_name; ?>-fake-field" name="<?php echo $this->plugin_name; ?>[fake_field]" value="1" />
+
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-keep-schema" name="<?php echo $this->plugin_name; ?>[keep_schema]" value="1" <?php checked($keep_schema, 1); ?> />
 <b><?php esc_attr_e('Turn off remove schema on this page', $this->plugin_name); ?></b></br>
 
