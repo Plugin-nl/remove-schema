@@ -40,10 +40,9 @@ You can install Remove Schema at the moment only by downloading it from GitHub a
 
 == Frequently Asked Questions ==
 
-= Can you make an exception for a plugin =
+= Can you make add support for a plugin =
 
-No, you'll have to select the schema that you want gone. If we have missed a plugin please create an issue on [Github](https://github.com/Plugin-nl/remove-schema "Remove Schema Github").
-
+Yes we can. If we have missed a plugin please create an issue on [Github](https://github.com/Plugin-nl/remove-schema "Remove Schema Github").
 
 == Screenshots ==
 
@@ -51,6 +50,9 @@ No, you'll have to select the schema that you want gone. If we have missed a plu
 2. Page editor
 
 == Changelog ==
+
+= 1.3.2 =
+* Bugfix - page specific markup wouldn't save if everything was unchecked.
 
 = 1.3 =
 * Improved security
