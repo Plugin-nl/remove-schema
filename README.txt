@@ -52,7 +52,7 @@ Yes we can. If we have missed a plugin please create an issue on [Github](https:
 == Changelog ==
 
 = 1.3.2 =
-* Bugfix - page specific markup wouldn't save if everything was unchecked.
+* Bugfixes - page specific markup wouldn't save if everything was unchecked.
 
 = 1.3 =
 * Improved security
