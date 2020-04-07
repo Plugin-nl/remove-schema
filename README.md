@@ -2,6 +2,8 @@
 
 Remove all Schema Markup / Structured data (Microdata, RDFa and/or JSON-ld) that you don’t want on your site. You can use this plugin on site level and/or on page level.
 
+[![RIPS CodeRisk](https://coderisk.com/wp/plugin/remove-schema/badge "RIPS CodeRisk")](https://coderisk.com/wp/plugin/remove-schema)
+
 ## Remove Schema
 
 Remove Schema optionally removes all schema markup from your website.
