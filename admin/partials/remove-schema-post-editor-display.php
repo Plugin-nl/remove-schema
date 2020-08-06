@@ -35,6 +35,19 @@ $woocommerce_jsonld = $options['woocommerce_jsonld'];
 $schema_pro = $options['schema_pro'];
 $microdata = $options['microdata'];
 $rdfa = $options['rdfa'];
+
+function pluginnl_plugin_is_active( $pluginpath ){
+ if ( is_multisite() ) {
+    if(is_plugin_active_for_network( $pluginpath ) || is_plugin_active( $pluginpath )){
+      $active = true;
+    }else{
+      $active = false;
+    }
+  } else {
+    $active =  is_plugin_active( $pluginpath ) ? true : false;
+  }
+  return $active;
+}
 ?>
 <input class="hidden" style="display:none;" type="text" id="<?php echo $this->plugin_name; ?>-fake-field" name="<?php echo $this->plugin_name; ?>[fake_field]" value="1" />
 
@@ -47,17 +60,17 @@ $rdfa = $options['rdfa'];
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-rm-json-ld" name="<?php echo $this->plugin_name; ?>[rm_jsonld]" value="1" <?php checked($rm_jsonld, 1); ?> />
 <?php esc_attr_e('Remove all JSON-LD', $this->plugin_name); ?></br>
 
-<?php if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) { ?>
+<?php if ( pluginnl_plugin_is_active( 'wordpress-seo/wp-seo.php' ) ) { ?>
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-yoast-json-ld" name="<?php echo $this->plugin_name; ?>[yoast_jsonld]" value="1" <?php checked($yoast_jsonld, 1); ?> />
 <?php esc_attr_e('Remove Yoast JSON-LD', $this->plugin_name); ?></br>
 <?php } ?>
 
-<?php if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { ?>
+<?php if ( pluginnl_plugin_is_active( 'woocommerce/woocommerce.php' ) ) { ?>
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-woocommerce-json-ld" name="<?php echo $this->plugin_name; ?>[woocommerce_jsonld]" value="1" <?php checked($woocommerce_jsonld, 1); ?> />
 <?php esc_attr_e('Remove WooCommerce JSON-LD', $this->plugin_name); ?></br>
 <?php } ?>
 
-<?php if ( is_plugin_active( 'wp-schema-pro/wp-schema-pro.php' ) ) { ?>
+<?php if ( pluginnl_plugin_is_active( 'wp-schema-pro/wp-schema-pro.php' ) ) { ?>
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-schema-pro" name="<?php echo $this->plugin_name; ?>[schema_pro]" value="1" <?php checked($schema_pro, 1); ?> />
 <?php esc_attr_e('Remove Schema pro JSON-LD', $this->plugin_name); ?></br>
 <?php } ?>

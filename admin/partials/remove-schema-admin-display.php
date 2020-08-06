@@ -28,7 +28,7 @@
   <form method="post" name="remove_schema_options" action="options.php">
 
     <?php
-    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+    require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
     //Grab all options
     $options = get_option($this->plugin_name);
@@ -44,9 +44,19 @@
     $generatepress_schema = $options['generatepress_schema'];
     $remove_hentry_schema = $options['remove_hentry_schema'];
 
-    ?>
+    function pluginnl_plugin_is_active( $pluginpath ){
+   	 if ( is_multisite() ) {
+   	    if(is_plugin_active_for_network( $pluginpath ) || is_plugin_active( $pluginpath )){
+          $active = true;
+        }else{
+          $active = false;
+        }
+   		} else {
+   		  $active =  is_plugin_active( $pluginpath ) ? true : false;
+   		}
+   	  return $active;
+    }
 
-    <?php
     settings_fields($this->plugin_name);
     do_settings_sections($this->plugin_name);
     ?>
@@ -56,7 +66,7 @@
     	<h2><?php esc_attr_e( 'Plugin/Theme schema removal', $this->plugin_name ); ?></h2>
 
           <!-- remove Yoast JSONLD -->
-          <?php if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) { ?>
+          <?php if ( pluginnl_plugin_is_active( 'wordpress-seo/wp-seo.php' ) ) { ?>
           <fieldset>
             <legend class="screen-reader-text"><span><?php _e('Remove Yoast JSON-LD', $this->plugin_name); ?></span></legend>
             <label for="<?php echo $this->plugin_name; ?>-yoast-json-ld">
@@ -67,7 +77,7 @@
           <?php } ?>
 
           <!-- remove WooCommerce JSONLD -->
-          <?php if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { ?>
+          <?php if ( pluginnl_plugin_is_active( 'woocommerce/woocommerce.php' ) ) { ?>
           <fieldset>
             <legend class="screen-reader-text"><span><?php _e('Remove WooCommerce JsonLD', $this->plugin_name); ?></span></legend>
             <label for="<?php echo $this->plugin_name; ?>-yoast-json-ld">
@@ -78,7 +88,7 @@
           <?php } ?>
 
           <!-- remove  JSONLD in WooCommerce emails -->
-          <?php if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) { ?>
+          <?php if ( pluginnl_plugin_is_active( 'woocommerce/woocommerce.php' ) ) { ?>
           <fieldset>
             <legend class="screen-reader-text"><span><?php _e('Remove WooCommerce JsonLD in Emails', $this->plugin_name); ?></span></legend>
             <label for="<?php echo $this->plugin_name; ?>-woocommerce-mail-json-ld">
@@ -89,7 +99,7 @@
           <?php } ?>
 
           <!-- Remove schema pro schema -->
-          <?php if ( is_plugin_active( 'wp-schema-pro/wp-schema-pro.php' ) ) { ?>
+          <?php if ( pluginnl_plugin_is_active( 'wp-schema-pro/wp-schema-pro.php' ) ) { ?>
           <fieldset>
             <legend class="screen-reader-text"><span><?php _e('Remove Schema pro JSON-LD', $this->plugin_name); ?></span></legend>
             <label for="<?php echo $this->plugin_name; ?>-schema-pro">
