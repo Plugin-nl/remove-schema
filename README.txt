@@ -1,9 +1,9 @@
 === Remove Schema ===
-Contributors: timvaniersel, lorenzonannings
+Contributors: timvaniersel
 Donate link: https://plugin.nl/en/remove-schema-plugin/
 Tags: schema, schema markup, structured data
 Requires at least: 3.0.1
-Tested up to: 5.3
+Tested up to: 5.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -50,6 +50,9 @@ Yes we can. If we have missed a plugin please create an issue on [Github](https:
 2. Page editor
 
 == Changelog ==
+
+= 1.3.4 =
+* Add multisite support
 
 = 1.3.3 =
 * Remove review notice
