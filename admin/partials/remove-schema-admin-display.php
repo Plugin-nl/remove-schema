@@ -66,7 +66,7 @@
     	<h2><?php esc_attr_e( 'Plugin/Theme schema removal', $this->plugin_name ); ?></h2>
 
           <!-- remove Yoast JSONLD -->
-          <?php if ( pluginnl_plugin_is_active( 'wordpress-seo/wp-seo.php' ) ) { ?>
+          <?php if (pluginnl_plugin_is_active( 'wordpress-seo/wp-seo.php') || pluginnl_plugin_is_active('wordpress-seo-premium/wp-seo-premium.php') ) { ?>
           <fieldset>
             <legend class="screen-reader-text"><span><?php _e('Remove Yoast JSON-LD', $this->plugin_name); ?></span></legend>
             <label for="<?php echo $this->plugin_name; ?>-yoast-json-ld">
