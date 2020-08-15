@@ -51,6 +51,9 @@ Yes we can. If we have missed a plugin please create an issue on [Github](https:
 
 == Changelog ==
 
+= 1.4 =
+* Add Yoast SEO Premium support
+
 = 1.3.4 =
 * Add multisite support
 

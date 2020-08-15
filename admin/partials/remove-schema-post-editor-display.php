@@ -60,7 +60,7 @@ function pluginnl_plugin_is_active( $pluginpath ){
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-rm-json-ld" name="<?php echo $this->plugin_name; ?>[rm_jsonld]" value="1" <?php checked($rm_jsonld, 1); ?> />
 <?php esc_attr_e('Remove all JSON-LD', $this->plugin_name); ?></br>
 
-<?php if ( pluginnl_plugin_is_active( 'wordpress-seo/wp-seo.php' ) ) { ?>
+<?php if (pluginnl_plugin_is_active( 'wordpress-seo/wp-seo.php') || pluginnl_plugin_is_active('wordpress-seo-premium/wp-seo-premium.php') ) { ?>
 <input type="checkbox" id="<?php echo $this->plugin_name; ?>-yoast-json-ld" name="<?php echo $this->plugin_name; ?>[yoast_jsonld]" value="1" <?php checked($yoast_jsonld, 1); ?> />
 <?php esc_attr_e('Remove Yoast JSON-LD', $this->plugin_name); ?></br>
 <?php } ?>
