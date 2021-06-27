@@ -91,7 +91,7 @@ class Remove_Schema_Post_Editor {
 					return;
 
 			// security check
-			if ( isset($_POST['remove_schema_nonce']) && !wp_verify_nonce( $_POST['remove_schema_nonce'], plugin_basename( __FILE__ ) ) )
+			if ( isset($_POST['remove_schema_nonce'])  || !wp_verify_nonce( $_POST['remove_schema_nonce'], plugin_basename( __FILE__ ) ) )
 					return;
 
 	    // All checkboxes inputs
